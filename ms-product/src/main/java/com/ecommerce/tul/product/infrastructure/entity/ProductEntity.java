@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "product")
-public class ProductEntity implements Serializable{
+public class ProductEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,12 +22,16 @@ public class ProductEntity implements Serializable{
 	private String name;
 	private String description;
 	private Double price;
+	private boolean discount;
+	private int quantity;
 
-	public ProductEntity(UUID sku, String name, String description, Double price) {
+	public ProductEntity(UUID sku, String name, String description, Double price, boolean discount, int quantity) {
 		this.sku = sku;
 		this.name = name;
 		this.description = description;
 		this.price = price;
+		this.discount = discount;
+		this.quantity = quantity;
 	}
 
 	public ProductEntity() {
@@ -63,6 +67,22 @@ public class ProductEntity implements Serializable{
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public boolean isDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(boolean discount) {
+		this.discount = discount;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 }

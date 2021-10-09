@@ -1,6 +1,6 @@
-package com.ecommerce.tul.product.domain.exception;
+package com.ecommerce.tul.cart.domain.util;
 
-public class TechnicalException extends Exception {
+public class TechnicalException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 

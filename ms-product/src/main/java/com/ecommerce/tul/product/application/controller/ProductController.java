@@ -27,19 +27,29 @@ public class ProductController {
 	public List<Product> getAllProducts() {
 		return productService.getProducts();
 	}
-	
+
 	@PostMapping("/product")
-	public boolean createProduct(@RequestBody Product product) {
+	public Product createProduct(@RequestBody Product product) {
 		return productService.createProduct(product);
 	}
-	
+
 	@PutMapping("/product")
-	public boolean updateProduct(@RequestBody Product product) {
-		return productService.updateProduct(product);
+	public void updateProduct(@RequestBody Product product) {
+		productService.updateProduct(product);
 	}
-	
+
 	@DeleteMapping("/product/{id}")
-	public boolean deleteProduct(@PathVariable UUID id) {
-		return productService.deleteProduct(id);
+	public void deleteProduct(@PathVariable UUID id) {
+		productService.deleteProduct(id);
+	}
+
+	@GetMapping("/product/{id}")
+	public Product getProduct(@PathVariable UUID id) {
+		return productService.getProductById(id);
+	}
+
+	@PutMapping("/products")
+	public void updateProducts(@RequestBody List<Product> product) {
+		productService.updateProducts(product);
 	}
 }

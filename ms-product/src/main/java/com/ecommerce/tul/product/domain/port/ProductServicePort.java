@@ -7,7 +7,14 @@ import com.ecommerce.tul.product.domain.data.Product;
 
 public interface ProductServicePort {
 	List<Product> getProducts();
-	boolean createProduct(Product product);
-	boolean updateProduct(Product product);
-	boolean deleteProduct(UUID id);
+
+	Product createProduct(Product product);
+
+	void updateProduct(Product product);
+
+	void deleteProduct(UUID id);
+
+	Product getProductById(UUID id);
+	
+	void updateProducts(List<Product> listProducts);
 }

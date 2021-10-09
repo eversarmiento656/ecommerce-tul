@@ -9,9 +9,13 @@ public interface ProductPersistencePort {
 
 	List<Product> getProducts();
 
-	boolean createProduct(Product product);
+	Product createProduct(Product product);
 
-	boolean updateProduct(Product product);
+	void updateProduct(Product product);
 
-	boolean deleteProduct(UUID id);
+	void deleteProduct(UUID id);
+
+	Product getProductById(UUID id);
+	
+	void updateListProduct(List<Product> listProduct);
 }
