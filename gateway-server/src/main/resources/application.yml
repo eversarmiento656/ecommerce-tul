@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: service-product
+        uri: lb://service-product
+        predicates:
+          - Path=/api/msproduct/**
+        filters:
+          - StripPrefix=2
+      - id: service-cart
+        uri: lb://service-cart
+        predicates:
+          - Path=/api/mscart/**
+        filters:
+          - StripPrefix=2
