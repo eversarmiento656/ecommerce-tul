@@ -11,6 +11,7 @@ import com.ecommerce.tul.ecommercecommons.models.Product;
 import com.ecommerce.tul.product.domain.port.ProductPersistencePort;
 import com.ecommerce.tul.product.domain.util.Constant;
 import com.ecommerce.tul.product.infrastructure.entity.ProductEntity;
+import com.ecommerce.tul.product.infrastructure.mapper.ProductMapper;
 import com.ecommerce.tul.product.infrastructure.repository.ProductRepository;
 
 public class ProductJpaAdapter implements ProductPersistencePort {
@@ -21,15 +22,13 @@ public class ProductJpaAdapter implements ProductPersistencePort {
 	@Override
 	public List<Product> getProducts() {
 		List<Product> listProduct = new ArrayList<>();
-		this.productRepository.findAll().forEach(pro -> listProduct.add(new Product(pro.getSku(), pro.getName(),
-				pro.getDescription(), pro.getPrice(), pro.isDiscount(), pro.getQuantity())));
+		this.productRepository.findAll().forEach(pro -> listProduct.add(ProductMapper.INSTANCE.entityToProduct(pro)));
 		return listProduct;
 	}
 
 	@Override
 	public Product createProduct(Product product) {
-		ProductEntity entidad = this.productRepository.save(new ProductEntity(product.getSku(), product.getName(),
-				product.getDescription(), product.getPrice(), product.isDiscount(), product.getQuantity()));
+		ProductEntity entidad = this.productRepository.save(ProductMapper.INSTANCE.productToEntity(product));
 		product.setSku(entidad.getSku());
 		return product;
 
@@ -37,13 +36,8 @@ public class ProductJpaAdapter implements ProductPersistencePort {
 
 	@Override
 	public void updateProduct(Product product) {
-		ProductEntity entity = getProduct(product.getSku());
-		entity.setDescription(product.getDescription());
-		entity.setName(product.getName());
-		entity.setPrice(product.getPrice());
-		entity.setQuantity(product.getQuantity());
-		entity.setDiscount(product.isDiscount());
-		this.productRepository.save(entity);
+		getProduct(product.getSku());
+		this.productRepository.save(ProductMapper.INSTANCE.productToEntity(product));
 	}
 
 	@Override
@@ -54,9 +48,7 @@ public class ProductJpaAdapter implements ProductPersistencePort {
 
 	@Override
 	public Product getProductById(UUID id) {
-		ProductEntity entity = getProduct(id);
-		return new Product(entity.getSku(), entity.getName(), entity.getDescription(), entity.getPrice(),
-				entity.isDiscount(), entity.getQuantity());
+		return ProductMapper.INSTANCE.entityToProduct(getProduct(id));
 	}
 
 	private ProductEntity getProduct(UUID id) {
