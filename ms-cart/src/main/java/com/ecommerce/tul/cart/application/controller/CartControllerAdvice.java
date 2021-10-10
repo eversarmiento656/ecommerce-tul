@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.ecommerce.tul.cart.domain.util.BussinessException;
-import com.ecommerce.tul.cart.domain.util.TechnicalException;
+import com.ecommerce.tul.ecommercecommons.exception.BussinessException;
+import com.ecommerce.tul.ecommercecommons.exception.TechnicalException;
 
 @ControllerAdvice
 public class CartControllerAdvice extends ResponseEntityExceptionHandler {

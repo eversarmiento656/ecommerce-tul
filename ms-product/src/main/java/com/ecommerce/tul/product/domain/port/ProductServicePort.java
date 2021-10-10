@@ -3,7 +3,8 @@ package com.ecommerce.tul.product.domain.port;
 import java.util.List;
 import java.util.UUID;
 
-import com.ecommerce.tul.product.domain.data.Product;
+import com.ecommerce.tul.ecommercecommons.models.Product;
+
 
 public interface ProductServicePort {
 	List<Product> getProducts();

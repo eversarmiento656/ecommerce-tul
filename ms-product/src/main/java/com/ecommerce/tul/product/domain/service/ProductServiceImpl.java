@@ -3,12 +3,12 @@ package com.ecommerce.tul.product.domain.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.ecommerce.tul.product.domain.data.Product;
+import com.ecommerce.tul.ecommercecommons.exception.BussinessException;
+import com.ecommerce.tul.ecommercecommons.exception.TechnicalException;
+import com.ecommerce.tul.ecommercecommons.models.Product;
 import com.ecommerce.tul.product.domain.port.ProductPersistencePort;
 import com.ecommerce.tul.product.domain.port.ProductServicePort;
-import com.ecommerce.tul.product.domain.util.BussinessException;
 import com.ecommerce.tul.product.domain.util.Constant;
-import com.ecommerce.tul.product.domain.util.TechnicalException;
 
 public class ProductServiceImpl implements ProductServicePort {
 

@@ -1,4 +1,4 @@
-package com.ecommerce.tul.cart.domain.util;
+package com.ecommerce.tul.ecommercecommons.exception;
 
 public class TechnicalException extends RuntimeException {
 

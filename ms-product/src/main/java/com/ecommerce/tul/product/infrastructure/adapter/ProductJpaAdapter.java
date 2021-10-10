@@ -6,9 +6,9 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ecommerce.tul.product.domain.data.Product;
+import com.ecommerce.tul.ecommercecommons.exception.BussinessException;
+import com.ecommerce.tul.ecommercecommons.models.Product;
 import com.ecommerce.tul.product.domain.port.ProductPersistencePort;
-import com.ecommerce.tul.product.domain.util.BussinessException;
 import com.ecommerce.tul.product.domain.util.Constant;
 import com.ecommerce.tul.product.infrastructure.entity.ProductEntity;
 import com.ecommerce.tul.product.infrastructure.repository.ProductRepository;

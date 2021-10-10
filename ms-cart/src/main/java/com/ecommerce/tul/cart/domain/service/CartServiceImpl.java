@@ -6,15 +6,15 @@ import java.util.UUID;
 
 import com.ecommerce.tul.cart.domain.data.Cart;
 import com.ecommerce.tul.cart.domain.data.Checkout;
-import com.ecommerce.tul.cart.domain.data.Product;
 import com.ecommerce.tul.cart.domain.data.ProductDetail;
 import com.ecommerce.tul.cart.domain.data.stateEnum;
 import com.ecommerce.tul.cart.domain.port.CartPersistencePort;
 import com.ecommerce.tul.cart.domain.port.CartRestPort;
 import com.ecommerce.tul.cart.domain.port.CartServicePort;
-import com.ecommerce.tul.cart.domain.util.BussinessException;
 import com.ecommerce.tul.cart.domain.util.Constant;
-import com.ecommerce.tul.cart.domain.util.TechnicalException;
+import com.ecommerce.tul.ecommercecommons.exception.BussinessException;
+import com.ecommerce.tul.ecommercecommons.exception.TechnicalException;
+import com.ecommerce.tul.ecommercecommons.models.Product;
 
 public class CartServiceImpl implements CartServicePort {
 

@@ -2,7 +2,7 @@ package com.ecommerce.tul.cart.domain.port;
 
 import java.util.List;
 
-import com.ecommerce.tul.cart.domain.data.Product;
+import com.ecommerce.tul.ecommercecommons.models.Product;
 
 public interface CartRestPort {
 	Product getProduct(String id);

@@ -1,4 +1,4 @@
-package com.ecommerce.tul.cart.domain.data;
+package com.ecommerce.tul.ecommercecommons.models;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -10,13 +10,15 @@ public class Product implements Serializable {
 	private String name;
 	private String description;
 	private Double price;
-	private Integer quantity;
+	private boolean discount;
+	private int quantity;
 
-	public Product(UUID sku, String name, String description, Double price, Integer quantity) {
+	public Product(UUID sku, String name, String description, Double price, boolean discount, int quantity) {
 		this.sku = sku;
 		this.name = name;
 		this.description = description;
 		this.price = price;
+		this.discount = discount;
 		this.quantity = quantity;
 	}
 
@@ -55,13 +57,20 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
-	public Integer getQuantity() {
+	public boolean isDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(boolean discount) {
+		this.discount = discount;
+	}
+
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(Integer quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
-	
+
 }
