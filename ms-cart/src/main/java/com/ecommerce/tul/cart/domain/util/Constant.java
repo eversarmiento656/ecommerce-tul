@@ -3,6 +3,7 @@ package com.ecommerce.tul.cart.domain.util;
 public final class Constant {
 	public static final String KEY_CART = "Cart";
 	public static final String ERROR_CHECKOUT = "ocurrió un error al hacer el checkout";
+	public static final String ERROR_CHECKOUT_STATE_COMPLETE = "ocurrió un error al hacer el checkout, el carrito se encuentra en estado completado";
 	public static final String ERROR_DELETE_CART = "ocurrió un error al eliminar el cart";
 	public static final String ERROR_FIND_CART = "ocurrió un error al buscar el cart por id";
 	public static final String ERROR_ADD_CART = "ocurrió un error al intentar agregar el producto al carrito";

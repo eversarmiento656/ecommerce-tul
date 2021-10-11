@@ -122,6 +122,7 @@ public class CartServiceImpl implements CartServicePort {
 
 		try {
 			Cart cart = this.cartPersistencePort.findById(idCart);
+			validateState(cart);
 			this.cartRestPort.updateListProduct(this.getListProductToUpdate(cart));
 			updateStateToComplete(cart);
 			return new Checkout(cart.getTotal());
@@ -131,6 +132,12 @@ public class CartServiceImpl implements CartServicePort {
 			throw new TechnicalException(Constant.ERROR_CHECKOUT);
 		}
 
+	}
+
+	private void validateState(Cart cart) {
+		if (stateEnum.COMPLETE.getState().equals(cart.getState())) {
+			throw new BussinessException(Constant.ERROR_CHECKOUT_STATE_COMPLETE);
+		}
 	}
 
 	private void updateStateToComplete(Cart cart) {
